@@ -1,572 +1,618 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kế hoạch du lịch ngày lễ 30/4 - 1/5/2025</title>
+    <title>Kế Hoạch Du Lịch 30/4 - 1/5/2025 Hà Nội</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+        
         :root {
-            --primary-color: #2c7873;
-            --secondary-color: #6ab187;
-            --accent-color: #f07c41;
-            --light-color: #f5f5f5;
-            --dark-color: #333;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --primary-color: #ff4757;
+            --secondary-color: #5352ed;
+            --accent-color: #ffa502;
+            --light-color: #f1f2f6;
+            --dark-color: #2f3542;
+            --success-color: #2ed573;
+            --info-color: #70a1ff;
+            --warning-color: #ffb142;
+            --danger-color: #ff6b81;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+            font-family: 'Quicksand', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #f8f9fa;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
         }
         
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
+        .hero-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             position: relative;
         }
         
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        .hero {
-            position: relative;
-            height: 80vh;
-            color: white;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://statics.vinpearl.com/thuy-cung-times-city-1_1634572330.png') no-repeat center center/cover;
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
         
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 15px;
+            position: relative;
+            z-index: 2;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .tab-content {
+            display: none;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        .tab-content.active {
+            display: block;
         }
         
-        .btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
+        .nav-item {
+            position: relative;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
         
-        .btn:hover {
-            background: #e06c31;
-            transform: translateY(-3px);
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .section-title p {
-            color: var(--secondary-color);
-        }
-        
-        .schedule-day {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-        
-        .day-header {
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
             background-color: var(--primary-color);
-            color: white;
-            padding: 15px 20px;
+            transition: width 0.3s ease;
         }
         
-        .day-content {
-            padding: 20px;
-        }
-        
-        .time-slot {
-            margin-bottom: 30px;
-        }
-        
-        .time-slot h4 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .activity {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .activity-time {
-            min-width: 150px;
-            font-weight: bold;
-        }
-        
-        .activity-info {
-            flex: 1;
-        }
-        
-        .activity-info p {
-            margin-bottom: 10px;
-        }
-        
-        .highlight {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-        
-        .items-list {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .items-list h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-        }
-        
-        .items-list ul {
-            list-style-position: inside;
-            margin-left: 20px;
-        }
-        
-        .items-list li {
-            margin-bottom: 10px;
-        }
-        
-        .notes {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            padding: 20px;
-        }
-        
-        .notes h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-        }
-        
-        .notes ul {
-            list-style-position: inside;
-            margin-left: 20px;
-        }
-        
-        .notes li {
-            margin-bottom: 10px;
-        }
-        
-        .attractions {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .attraction-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease;
-        }
-        
-        .attraction-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .attraction-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .attraction-image img {
+        .nav-item:hover::after,
+        .nav-item.active::after {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card img {
             transition: transform 0.5s ease;
         }
         
-        .attraction-card:hover .attraction-image img {
-            transform: scale(1.1);
+        .card:hover img {
+            transform: scale(1.05);
         }
         
-        .attraction-info {
-            padding: 20px;
-        }
-        
-        .attraction-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .attraction-info p {
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 60px;
-        }
-        
-        .pdf-button {
-            display: block;
-            width: 200px;
-            margin: 40px auto;
-            text-align: center;
-        }
-        
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .activity {
-                flex-direction: column;
-            }
-            
-            .activity-time {
-                margin-bottom: 10px;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                display: none;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-                padding: 10px;
-            }
-            
-            .hamburger {
-                display: block;
-                cursor: pointer;
-            }
-            
-            header .container {
-                position: relative;
-            }
-        }
-        
-        @media screen and (min-width: 769px) {
-            .hamburger {
-                display: none;
-            }
-        }
-        
-        /* Hamburger */
-        .hamburger {
-            width: 30px;
-            height: 20px;
+        .timeline {
             position: relative;
-            margin-right: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .hamburger span {
+        .timeline::after {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 3px;
+            width: 6px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
             background-color: white;
+            border: 4px solid var(--primary-color);
+        }
+        
+        .timeline-left {
+            left: 0;
+        }
+        
+        .timeline-right {
+            left: 50%;
+        }
+        
+        .timeline-left::after {
+            right: -10px;
+        }
+        
+        .timeline-right::after {
+            left: -10px;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-left::after, .timeline-right::after {
+                left: 21px;
+            }
+            
+            .timeline-right {
+                left: 0;
+            }
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
             transition: all 0.3s ease;
         }
         
-        .hamburger span:nth-child(1) {
+        .btn-gradient:hover {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .accordion-header {
+            cursor: pointer;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .accordion-item.active .accordion-body {
+            max-height: 1000px;
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .countdown-item {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: 0 10px;
+            border-radius: 50%;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .countdown-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .countdown-label {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: white;
+            text-transform: uppercase;
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+            
+            .countdown-item {
+                width: 60px;
+                height: 60px;
+                margin: 0 5px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.6rem;
+                bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .countdown-item {
+                width: 50px;
+                height: 50px;
+                margin: 0 5px;
+            }
+            
+            .countdown-number {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.5rem;
+                bottom: 8px;
+            }
+        }
+        
+         {
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            body {
+                background-color: white !important;
+            }
+            
+            .card {
+                break-inside: avoid;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+        
+        .slide-up {
+            animation: slideUp 1s ease forwards;
+        }
+        
+        .slide-left {
+            animation: slideLeft 1s ease forwards;
+        }
+        
+        .slide-right {
+            animation: slideRight 1s ease forwards;
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.7s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideLeft {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Pulsing animation for buttons */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+            }
+        }
+
+        /* Flickering light effect */
+        .flicker {
+            animation: flicker 3s linear infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                opacity: 1;
+            }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Weather icon animation */
+        .weather-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Progress bar animation */
+        .progress-bar {
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        /* Image hover effect */
+        .img-hover-zoom {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-hover-zoom img {
+            transition: transform 0.5s, filter 0.5s ease-in-out;
+            filter: grayscale(30%);
+        }
+
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        
+        .img-hover-zoom::before {
+            content: '';
+            position: absolute;
             top: 0;
-        }
-        
-        .hamburger span:nth-child(2) {
-            top: 8px;
-        }
-        
-        .hamburger span:nth-child(3) {
-            top: 16px;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
             opacity: 0;
+            transition: opacity 0.5s ease;
         }
         
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
+        .img-hover-zoom:hover::before {
+            opacity: 1;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">TravelPlan</div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 no-print">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-map-marked-alt text-3xl text-red-500 mr-3"></i>
+                    <h1 class="text-xl font-bold">Hà Nội Tour 30/4 - 1/5/2025</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#overview" class="nav-item pb-2 text-gray-700 hover:text-red-500">Tổng quan</a>
+                    <a href="#day1" class="nav-item pb-2 text-gray-700 hover:text-red-500">Ngày 30/4</a>
+                    <a href="#day2" class="nav-item pb-2 text-gray-700 hover:text-red-500">Ngày 1/5</a>
+                    <a href="#checklist" class="nav-item pb-2 text-gray-700 hover:text-red-500">Chuẩn bị</a>
+                    <a href="#notes" class="nav-item pb-2 text-gray-700 hover:text-red-500">Lưu ý</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-700 hover:text-red-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#overview">Tổng Quan</a></li>
-                    <li><a href="#day1">Ngày 30/4</a></li>
-                    <li><a href="#day2">Ngày 1/5</a></li>
-                    <li><a href="#checklist">Chuẩn Bị</a></li>
-                    <li><a href="#notes">Lưu Ý</a></li>
-                </ul>
-            </nav>
         </div>
-    </header>
-    
-    <div class="hero">
-        <div class="hero-content">
-            <h1>KẾ HOẠCH DU LỊCH NGÀY LỄ 30/4 - 1/5/2025</h1>
-            <p>Trải nghiệm những chuyến tham quan thú vị tại Hà Nội với lịch trình được lên kế hoạch chi tiết: Thủy Cung Times City, Công viên Thủ Lệ, Bảo tàng Quân đội Việt Nam và nhiều hoạt động hấp dẫn khác.</p>
-            <a href="#overview" class="btn">Xem Chi Tiết</a>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="#overview" class="py-2 text-gray-700 hover:text-red-500 border-b border-gray-200">Tổng quan</a>
+                    <a href="#day1" class="py-2 text-gray-700 hover:text-red-500 border-b border-gray-200">Ngày 30/4</a>
+                    <a href="#day2" class="py-2 text-gray-700 hover:text-red-500 border-b border-gray-200">Ngày 1/5</a>
+                    <a href="#checklist" class="py-2 text-gray-700 hover:text-red-500 border-b border-gray-200">Chuẩn bị</a>
+                    <a href="#notes" class="py-2 text-gray-700 hover:text-red-500">Lưu ý</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </nav>
     
-    <section id="overview">
-        <div class="container">
-            <div class="section-title">
-                <h2>Tổng Quan Chuyến Đi</h2>
-                <p>Một kỳ nghỉ lễ 30/4-1/5 trọn vẹn với nhiều trải nghiệm thú vị</p>
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center" style="background-image: url('https://cdn.pixabay.com/photo/2018/05/22/01/37/hanoi-3420244_1280.jpg');">
+        <div class="hero-content text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-5 fade-in" data-aos="fade-up">Kế Hoạch Du Lịch Hà Nội</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-8 slide-up" data-aos="fade-up" data-aos-delay="200">Dịp Lễ 30/4 - 1/5/2025</h2>
+            
+            <div class="flex justify-center items-center mb-10" data-aos="fade-up" data-aos-delay="400">
+                <div id="countdown" class="flex flex-wrap justify-center">
+                    <div class="countdown-item">
+                        <span id="days" class="countdown-number">00</span>
+                        <span class="countdown-label">Ngày</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours" class="countdown-number">00</span>
+                        <span class="countdown-label">Giờ</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes" class="countdown-number">00</span>
+                        <span class="countdown-label">Phút</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds" class="countdown-number">00</span>
+                        <span class="countdown-label">Giây</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="attractions">
-                <div class="attraction-card">
-                    <div class="attraction-image">
-                        <img src="https://statics.vinpearl.com/thuy-cung-times-city-1_1634572330.png" alt="Thủy Cung Times City">
+            <div data-aos="fade-up" data-aos-delay="600">
+                <a href="#overview" class="btn-gradient px-8 py-3 rounded-full font-semibold pulse">
+                    <i class="fas fa-chevron-down mr-2"></i>Khám phá ngay
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Tổng Quan Chuyến Đi</h2>
+                <div class="w-24 h-1 bg-red-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                    Hành trình 2 ngày đầy thú vị khám phá những điểm đến nổi tiếng tại Hà Nội trong dịp lễ 30/4 - 1/5/2025
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-hover-zoom h-48">
+                        <img src="https://cdn.pixabay.com/photo/2022/03/21/10/32/woman-7082589_1280.jpg" alt="Thời gian" class="w-full h-full object-cover">
                     </div>
-                    <div class="attraction-info">
-                        <h3>Thủy Cung Times City</h3>
-                        <p>Khám phá thế giới đại dương kỳ diệu với hơn 30.000 sinh vật biển từ nhiều hệ sinh thái khác nhau.</p>
-                        <p><span class="highlight">Địa chỉ:</span> Tầng B1, TTTM Vincom Mega Mall Times City, 458 Minh Khai</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Thời Gian</h3>
+                        <p class="text-gray-600 mb-4">
+                            <i class="far fa-calendar-alt text-red-500 mr-2"></i> 30/4/2025 - 1/5/2025
+                        </p>
+                        <p class="text-gray-600">
+                            Hai ngày tham quan các địa điểm nổi tiếng tại Hà Nội, bao gồm Thủy Cung Times City, Công viên Thủ Lệ và Bảo tàng Quân đội.
+                        </p>
                     </div>
                 </div>
                 
-                <div class="attraction-card">
-                    <div class="attraction-image">
-                        <img src="https://visitbadinh.com/DataFiles/2023/11/Entertainment/20231129-143951-gR1wPTTY.jpg" alt="Công viên Thủ Lệ">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="img-hover-zoom h-48">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/28/17/43/fish-2016008_1280.jpg" alt="Điểm Đến" class="w-full h-full object-cover">
                     </div>
-                    <div class="attraction-info">
-                        <h3>Công viên Thủ Lệ</h3>
-                        <p>Khu vườn thú rộng lớn với nhiều loài động vật quý hiếm và khu vực vui chơi dành cho gia đình.</p>
-                        <p><span class="highlight">Địa chỉ:</span> Số 1 Đường Bưởi, Quận Ba Đình, Hà Nội</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Điểm Đến</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> Thủy Cung Times City</li>
+                            <li><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> Show nhạc nước Times City</li>
+                            <li><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> Công viên Thủ Lệ</li>
+                            <li><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> Bảo tàng Quân đội</li>
+                            <li><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> Aeon Mall Long Biên</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="attraction-card">
-                    <div class="attraction-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Army_Museum_Entrance%2C_Hanoi.jpg" alt="Bảo tàng Quân đội">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                    <div class="img-hover-zoom h-48">
+                        <img src="https://cdn.pixabay.com/photo/2020/04/30/22/34/weather-5114477_1280.jpg" alt="Dự báo thời tiết" class="w-full h-full object-cover">
                     </div>
-                    <div class="attraction-info">
-                        <h3>Bảo tàng Quân đội</h3>
-                        <p>Tìm hiểu về lịch sử quân sự Việt Nam và chiêm ngưỡng các hiện vật quý giá từ các cuộc kháng chiến.</p>
-                        <p><span class="highlight">Địa chỉ:</span> 28A Điện Biên Phủ, Ba Đình, Hà Nội</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="day1">
-        <div class="container">
-            <div class="section-title">
-                <h2>Ngày 30/4/2025 (Thứ Tư)</h2>
-                <p>Thủy Cung Times City &amp; Show Nhạc Nước</p>
-            </div>
-            
-            <div class="schedule-day">
-                <div class="day-header">
-                    <h3>Lịch trình chi tiết - Ngày 30/4/2025</h3>
-                </div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <h4>Buổi Sáng</h4>
-                        <div class="activity">
-                            <div class="activity-time">8:00 - 10:30</div>
-                            <div class="activity-info">
-                                <p>Nghỉ ngơi tại nhà, thư giãn và chuẩn bị cho các hoạt động trong ngày.</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Dự Báo Thời Tiết</h3>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-sun text-yellow-500 text-3xl mr-3 weather-icon"></i>
+                            <div>
+                                <p class="text-gray-700 font-semibold">30/4/2025</p>
+                                <p class="text-gray-600">Nhiều nắng, 28-34°C</p>
                             </div>
                         </div>
-                        <div class="activity">
-                            <div class="activity-time">10:30 - 11:30</div>
-                            <div class="activity-info">
-                                <p>Chuẩn bị bữa trưa.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">11:30 - 13:00</div>
-                            <div class="activity-info">
-                                <p>Ăn trưa tại nhà.</p>
-                                <p><span class="highlight">Thực đơn đề xuất:</span> Cơm thịt gà hoặc các món đặc sản quê.</p>
-                                <p><span class="highlight">Lưu ý:</span> Mọi người có thể mang thêm đặc sản từ quê lên để cùng thưởng thức.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-slot">
-                        <h4>Buổi Chiều</h4>
-                        <div class="activity">
-                            <div class="activity-time">13:00 - 14:00</div>
-                            <div class="activity-info">
-                                <p>Nghỉ ngơi, chuẩn bị đồ dùng cần thiết (nước uống, đồ ăn nhẹ, máy ảnh).</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">14:00</div>
-                            <div class="activity-info">
-                                <p>Xuất phát đi Thủy Cung Times City.</p>
-                                <p><span class="highlight">Địa chỉ:</span> Tầng B1, TTTM Vincom Mega Mall Times City, 458 Minh Khai, Hai Bà Trưng, Hà Nội.</p>
-                                <p><span class="highlight">Giá vé tham khảo:</span> 150.000 - 200.000 VNĐ/người lớn; 100.000 VNĐ/trẻ em.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">14:30 - 17:30</div>
-                            <div class="activity-info">
-                                <p>Tham quan Thủy Cung:</p>
-                                <ul>
-                                    <li>Khám phá các khu vực: Đại dương sâu, Vùng nước ngọt, Rạn san hô, Xứ sở thần tiên.</li>
-                                    <li>Xem show biểu diễn của cá heo (nếu có lịch trình vào ngày này).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-slot">
-                        <h4>Buổi Tối</h4>
-                        <div class="activity">
-                            <div class="activity-time">18:00 - 19:00</div>
-                            <div class="activity-info">
-                                <p>Ăn tối tại KFC Times City.</p>
-                                <p><span class="highlight">Địa chỉ:</span> Tầng 1, TTTM Vincom Mega Mall Times City.</p>
-                                <p><span class="highlight">Món đề xuất:</span> Combo gà rán gia đình, khoai tây chiên, salad và nước uống.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">19:00 - 20:00</div>
-                            <div class="activity-info">
-                                <p>Xem show nhạc nước tại Times City.</p>
-                                <p><span class="highlight">Địa điểm:</span> Công viên nước ngoài trời, Times City.</p>
-                                <p><span class="highlight">Lưu ý:</span> Nên đến sớm 15-20 phút để có vị trí đẹp.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">20:00</div>
-                            <div class="activity-info">
-                                <p>Về nhà nghỉ ngơi.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">20:30 - 21:30</div>
-                            <div class="activity-info">
-                                <p>(Tùy chọn) Cho các cháu xuống khu vui chơi dưới chân chung cư nếu còn sức.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">21:30</div>
-                            <div class="activity-info">
-                                <p>Nghỉ ngơi, chuẩn bị cho ngày hôm sau.</p>
-                                <p><span class="highlight">Lựa chọn bổ sung:</span> Nấu nồi cháo gà nếu mọi người đói.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-cloud-sun text-gray-400 text-3xl mr-3 weather-icon"></i>
+                            <div>
+                                <p class="text-gray-700 font-semibold">1/5/2025</p>
+                                <p class="text-gray-600">Có mây, 27-33°C</p>
                             </div>
                         </div>
                     </div>
@@ -575,132 +621,651 @@
         </div>
     </section>
     
-    <section id="day2">
-        <div class="container">
-            <div class="section-title">
-                <h2>Ngày 1/5/2025 (Thứ Năm)</h2>
-                <p>Công viên Thủ Lệ, Bảo tàng Quân đội &amp; Aeon Mall</p>
-            </div>
-            
-            <div class="schedule-day">
-                <div class="day-header">
-                    <h3>Lịch trình chi tiết - Ngày 1/5/2025</h3>
+    <!-- Day Tabs -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="flex flex-wrap border-b">
+                    <button id="tab1Btn" class="tab-btn active flex-1 py-4 px-6 text-center font-semibold text-gray-800 hover:bg-gray-100 focus:outline-none transition duration-300 active:bg-gray-100">
+                        <i class="far fa-calendar-alt mr-2 text-red-500"></i>Ngày 30/4/2025
+                    </button>
+                    <button id="tab2Btn" class="tab-btn flex-1 py-4 px-6 text-center font-semibold text-gray-800 hover:bg-gray-100 focus:outline-none transition duration-300">
+                        <i class="far fa-calendar-alt mr-2 text-red-500"></i>Ngày 1/5/2025
+                    </button>
                 </div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <h4>Buổi Sáng</h4>
-                        <div class="activity">
-                            <div class="activity-time">7:00 - 8:00</div>
-                            <div class="activity-info">
-                                <p>Thức dậy, vệ sinh cá nhân và ăn sáng.</p>
-                                <p><span class="highlight">Đề xuất bữa sáng:</span> Phở, bánh mì hoặc xôi để có đủ năng lượng cho một ngày dài.</p>
+                
+                <!-- Day 1 Content -->
+                <div id="tab1Content" class="tab-content active p-6">
+                    <div id="day1" class="mb-10">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4" data-aos="fade-up">
+                            <i class="fas fa-calendar-day text-red-500 mr-2"></i>Ngày 30/4/2025 (Thứ Tư)
+                        </h2>
+                        <div class="w-20 h-1 bg-red-500 mb-8" data-aos="fade-up" data-aos-delay="200"></div>
+                        
+                        <!-- Morning Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                                    <i class="fas fa-coffee text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI SÁNG</h3>
+                            </div>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">8:00 - 10:30</h4>
+                                            <p class="text-gray-600 mt-1">Nghỉ ngơi tại nhà, thư giãn và chuẩn bị cho các hoạt động trong ngày</p>
+                                        </div>
+                                        <i class="fas fa-bed text-2xl text-yellow-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">10:30 - 11:30</h4>
+                                            <p class="text-gray-600 mt-1">Chuẩn bị bữa trưa</p>
+                                        </div>
+                                        <i class="fas fa-utensils text-2xl text-yellow-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">11:30 - 13:00</h4>
+                                            <p class="text-gray-600 mt-1">Ăn trưa tại nhà</p>
+                                        </div>
+                                        <i class="fas fa-utensils text-2xl text-yellow-400"></i>
+                                    </div>
+                                    <div class="mt-3 pl-4 border-l-2 border-gray-200">
+                                        <h5 class="font-semibold text-gray-700">Thực đơn đề xuất:</h5>
+                                        <ul class="text-gray-600 list-disc pl-5 mt-1">
+                                            <li>Cơm thịt gà</li>
+                                            <li>Canh gừng</li>
+                                            <li>Thịt bò xào hành tây</li>
+                                        </ul>
+                                        <p class="text-gray-600 italic mt-2">
+                                            <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>
+                                            Lưu ý: Mọi người có thể mang thêm đặc sản từ quê lên để cùng thưởng thức
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="activity">
-                            <div class="activity-time">8:00 - 8:30</div>
-                            <div class="activity-info">
-                                <p>Chuẩn bị đồ dùng cần thiết (nước uống, đồ ăn nhẹ, mũ nón, kem chống nắng).</p>
+                        
+                        <!-- Afternoon Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                                    <i class="fas fa-sun text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI CHIỀU</h3>
+                            </div>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">13:00 - 14:00</h4>
+                                            <p class="text-gray-600 mt-1">Nghỉ ngơi, chuẩn bị đồ dùng cần thiết (nước uống, đồ ăn nhẹ, máy ảnh)</p>
+                                        </div>
+                                        <i class="fas fa-shopping-bag text-2xl text-blue-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">14:00</h4>
+                                            <p class="text-gray-600 mt-1">Xuất phát đi Thủy Cung Times City</p>
+                                        </div>
+                                        <i class="fas fa-car text-2xl text-blue-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-blue-50 p-3 rounded-lg">
+                                            <h5 class="font-semibold text-gray-700 flex items-center">
+                                                <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Địa chỉ:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">Tầng B1, TTTM Vincom Mega Mall Times City, 458 Minh Khai, Hai Bà Trưng, Hà Nội</p>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="fas fa-ticket-alt text-red-500 mr-2"></i>Giá vé:
+                                            </h5>
+                                            <div class="mt-1 overflow-x-auto">
+                                                <table class="min-w-full text-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-left p-2">Loại vé</th>
+                                                            <th class="text-left p-2">Người lớn (>140cm)</th>
+                                                            <th class="text-left p-2">Trẻ em (80-140cm)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="bg-white">
+                                                            <td class="p-2">Thứ 4 (30/4)</td>
+                                                            <td class="p-2">190.000đ → 152.000đ</td>
+                                                            <td class="p-2">140.000đ → 112.000đ</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <p class="text-green-600 text-sm italic mt-2">
+                                                <i class="fas fa-tags mr-1"></i>
+                                                Đang có ưu đãi giảm 20% đến 25/4/2025
+                                            </p>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="far fa-clock text-red-500 mr-2"></i>Giờ mở cửa:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">10:00 - 22:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">14:30 - 17:30</h4>
+                                            <p class="text-gray-600 mt-1">Tham quan Thủy Cung</p>
+                                        </div>
+                                        <i class="fas fa-fish text-2xl text-blue-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="img-hover-zoom rounded-lg overflow-hidden h-48">
+                                                <img src="https://cdn.pixabay.com/photo/2018/12/02/13/05/sharks-3851943_1280.jpg" alt="Thủy Cung" class="w-full h-full object-cover">
+                                            </div>
+                                            <div class="img-hover-zoom rounded-lg overflow-hidden h-48">
+                                                <img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/jellyfish-5673821_1280.jpg" alt="Đại dương" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <h5 class="font-semibold text-gray-700">Khám phá các khu vực:</h5>
+                                            <ul class="text-gray-600 mt-1 space-y-2">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-water text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Đại dương sâu - nơi bạn có thể chiêm ngưỡng các loài cá lớn như cá mập, cá đuối</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-water text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Vùng nước ngọt - nơi sinh sống của các loài cá nước ngọt như cá Hải Tượng, cá chép Koi</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-water text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Rạn san hô - khu vực đầy màu sắc với nhiều loài cá nhiệt đới nhỏ</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-water text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Xứ sở thần tiên - không gian trưng bày các mẫu vật thủy sinh với hiệu ứng ánh sáng 3D</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-yellow-50 p-3 rounded-lg mt-3">
+                                            <p class="text-gray-700">
+                                                <i class="fas fa-star text-yellow-500 mr-1"></i>
+                                                <span class="font-semibold">Đặc biệt:</span> Xem show diễn nàng tiên cá lúc 15:30 (kéo dài 10 phút) tại bể chính thủy cung.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="activity">
-                            <div class="activity-time">8:30</div>
-                            <div class="activity-info">
-                                <p>Xuất phát đi Công viên Thủ Lệ.</p>
-                                <p><span class="highlight">Địa chỉ:</span> Số 1 Đường Bưởi, Quận Ba Đình, Hà Nội.</p>
-                                <p><span class="highlight">Giá vé tham khảo:</span> 30.000 VNĐ/người lớn; 10.000 VNĐ/trẻ em.</p>
+                        
+                        <!-- Evening Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="500">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-moon text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI TỐI</h3>
                             </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">9:00 - 11:00</div>
-                            <div class="activity-info">
-                                <p>Tham quan Công viên Thủ Lệ:</p>
-                                <ul>
-                                    <li>Khám phá vườn thú: khu vực hổ, báo, gấu, linh trưởng, chim, bò sát...</li>
-                                    <li>Chụp ảnh lưu niệm, tham gia các hoạt động giải trí trong công viên.</li>
-                                </ul>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">18:00 - 19:00</h4>
+                                            <p class="text-gray-600 mt-1">Ăn tối tại KFC Times City</p>
+                                        </div>
+                                        <i class="fas fa-utensils text-2xl text-purple-400"></i>
+                                    </div>
+                                    <div class="mt-3 pl-4 border-l-2 border-gray-200">
+                                        <h5 class="font-semibold text-gray-700">Địa chỉ:</h5>
+                                        <p class="text-gray-600 mt-1">Tầng 1, TTTM Vincom Mega Mall Times City</p>
+                                        
+                                        <h5 class="font-semibold text-gray-700 mt-2">Món đề xuất:</h5>
+                                        <ul class="text-gray-600 list-disc pl-5 mt-1">
+                                            <li>Combo gà rán gia đình</li>
+                                            <li>Khoai tây chiên</li>
+                                            <li>Salad và nước uống</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">19:00 - 19:15</h4>
+                                            <p class="text-gray-600 mt-1">Xem show nhạc nước tại Times City</p>
+                                        </div>
+                                        <i class="fas fa-water text-2xl text-purple-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="img-hover-zoom rounded-lg overflow-hidden h-48 mb-3">
+                                            <img src="https://cdn.pixabay.com/photo/2020/07/02/22/26/water-5364262_1280.jpg" alt="Nhạc nước" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="bg-purple-50 p-3 rounded-lg">
+                                            <h5 class="font-semibold text-gray-700 flex items-center">
+                                                <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Địa điểm:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">Công viên nước ngoài trời, Times City</p>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-2 flex items-center">
+                                                <i class="far fa-clock text-red-500 mr-2"></i>Lịch diễn:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">Thứ Tư hàng tuần: 19:00 (kéo dài 10-15 phút)</p>
+                                            
+                                            <p class="text-gray-600 italic mt-2">
+                                                <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>
+                                                Lưu ý: Nên đến sớm 15-20 phút để có vị trí đẹp
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">20:00</h4>
+                                            <p class="text-gray-600 mt-1">Về nhà nghỉ ngơi</p>
+                                        </div>
+                                        <i class="fas fa-home text-2xl text-purple-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">20:30 - 21:30 (Tùy chọn)</h4>
+                                            <p class="text-gray-600 mt-1">Cho các cháu xuống khu vui chơi dưới chân chung cư nếu còn sức</p>
+                                        </div>
+                                        <i class="fas fa-child text-2xl text-purple-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">21:30</h4>
+                                            <p class="text-gray-600 mt-1">Nghỉ ngơi, chuẩn bị cho ngày hôm sau</p>
+                                        </div>
+                                        <i class="fas fa-bed text-2xl text-purple-400"></i>
+                                    </div>
+                                    <div class="mt-3 pl-4 border-l-2 border-gray-200">
+                                        <p class="text-gray-600 italic">
+                                            <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>
+                                            Lựa chọn bổ sung: Nấu nồi cháo gà nếu mọi người đói
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="time-slot">
-                        <h4>Buổi Trưa</h4>
-                        <div class="activity">
-                            <div class="activity-time">11:30 - 12:30</div>
-                            <div class="activity-info">
-                                <p>Ăn trưa tại Nhà hàng Phương Nam.</p>
-                                <p><span class="highlight">Địa chỉ:</span> 131 E3 Phố Vọng, Đồng Tâm, Hai Bà Trưng, Hà Nội (hoặc chi nhánh gần nhất).</p>
-                                <p><span class="highlight">Món đề xuất:</span> Lẩu cá kèo, các món đặc sản miền Tây.</p>
-                                <p><span class="highlight">Lưu ý:</span> Nên đặt bàn trước qua số điện thoại của nhà hàng.</p>
+                </div>
+                
+                <!-- Day 2 Content -->
+                <div id="tab2Content" class="tab-content p-6">
+                    <div id="day2" class="mb-10">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4" data-aos="fade-up">
+                            <i class="fas fa-calendar-day text-red-500 mr-2"></i>Ngày 1/5/2025 (Thứ Năm)
+                        </h2>
+                        <div class="w-20 h-1 bg-red-500 mb-8" data-aos="fade-up" data-aos-delay="200"></div>
+                        
+                        <!-- Morning Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                                    <i class="fas fa-coffee text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI SÁNG</h3>
+                            </div>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">7:00 - 8:00</h4>
+                                            <p class="text-gray-600 mt-1">Thức dậy, vệ sinh cá nhân và ăn sáng</p>
+                                        </div>
+                                        <i class="fas fa-utensils text-2xl text-yellow-400"></i>
+                                    </div>
+                                    <div class="mt-3 pl-4 border-l-2 border-gray-200">
+                                        <h5 class="font-semibold text-gray-700">Đề xuất bữa sáng:</h5>
+                                        <p class="text-gray-600 mt-1">Bún xương để có đủ năng lượng cho một ngày dài</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">8:00 - 8:30</h4>
+                                            <p class="text-gray-600 mt-1">Chuẩn bị đồ dùng cần thiết (nước uống, đồ ăn nhẹ, mũ nón, kem chống nắng)</p>
+                                        </div>
+                                        <i class="fas fa-shopping-bag text-2xl text-yellow-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">8:30</h4>
+                                            <p class="text-gray-600 mt-1">Xuất phát đi Công viên Thủ Lệ</p>
+                                        </div>
+                                        <i class="fas fa-car text-2xl text-yellow-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-blue-50 p-3 rounded-lg">
+                                            <h5 class="font-semibold text-gray-700 flex items-center">
+                                                <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Địa chỉ:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">Số 1 Đường Bưởi, Quận Ba Đình, Hà Nội</p>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="fas fa-ticket-alt text-red-500 mr-2"></i>Giá vé:
+                                            </h5>
+                                            <ul class="text-gray-600 mt-1">
+                                                <li>Người lớn: 30.000 VNĐ</li>
+                                                <li>Trẻ em: 20.000 VNĐ</li>
+                                            </ul>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="far fa-clock text-red-500 mr-2"></i>Giờ mở cửa:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">7:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 border-l-4 border-yellow-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">9:00 - 11:00</h4>
+                                            <p class="text-gray-600 mt-1">Tham quan Công viên Thủ Lệ</p>
+                                        </div>
+                                        <i class="fas fa-tree text-2xl text-yellow-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="img-hover-zoom rounded-lg overflow-hidden h-48">
+                                                <img src="https://cdn.pixabay.com/photo/2021/08/23/09/42/tiger-6567468_1280.jpg" alt="Công viên Thủ Lệ" class="w-full h-full object-cover">
+                                            </div>
+                                            <div class="img-hover-zoom rounded-lg overflow-hidden h-48">
+                                                <img src="https://cdn.pixabay.com/photo/2014/10/15/22/06/peacock-490507_1280.jpg" alt="Động vật" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <h5 class="font-semibold text-gray-700">Khám phá vườn thú:</h5>
+                                            <ul class="text-gray-600 mt-1 space-y-2">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-paw text-amber-500 mt-1 mr-2"></i>
+                                                    <span>Khu vực hổ, báo, gấu - nơi các loài thú lớn sinh sống</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-paw text-amber-500 mt-1 mr-2"></i>
+                                                    <span>Khu linh trưởng - với các loài khỉ, vượn</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-paw text-amber-500 mt-1 mr-2"></i>
+                                                    <span>Khu chim - nhiều loài chim quý hiếm</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-paw text-amber-500 mt-1 mr-2"></i>
+                                                    <span>Khu bò sát - với rắn, cá sấu, rùa</span>
+                                                </li>
+                                            </ul>
+                                            
+                                            <p class="text-gray-600 mt-3">
+                                                <i class="fas fa-camera text-green-500 mr-1"></i>
+                                                Chụp ảnh lưu niệm, tham gia các hoạt động giải trí trong công viên
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="activity">
-                            <div class="activity-time">12:30 - 14:00</div>
-                            <div class="activity-info">
-                                <p>Về nhà nghỉ ngơi, thư giãn.</p>
+                        
+                        <!-- Noon Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center">
+                                    <i class="fas fa-hamburger text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI TRƯA</h3>
+                            </div>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-orange-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">11:30 - 12:30</h4>
+                                            <p class="text-gray-600 mt-1">Ăn trưa tại Nhà hàng Phương Nam</p>
+                                        </div>
+                                        <i class="fas fa-utensils text-2xl text-orange-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-orange-50 p-3 rounded-lg">
+                                            <h5 class="font-semibold text-gray-700 flex items-center">
+                                                <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Địa chỉ các chi nhánh:
+                                            </h5>
+                                            <ul class="text-gray-600 mt-1 space-y-1">
+                                                <li>CS1: Số 2, ngõ 69 Chùa Láng, Đống Đa</li>
+                                                <li>CS2: Số 13 Mai Hắc Đế, Hai Bà Trưng</li>
+                                                <li>CS3: Số 35 Dịch Vọng Hậu, Cầu Giấy</li>
+                                                <li>CS4: Tòa Golden Palm, 21 Lê Văn Lương</li>
+                                            </ul>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="fas fa-utensils text-red-500 mr-2"></i>Món đề xuất:
+                                            </h5>
+                                            <ul class="text-gray-600 mt-1">
+                                                <li>Lẩu cá kèo - đặc sản miền Tây</li>
+                                                <li>Các món đặc sản miền Tây khác</li>
+                                            </ul>
+                                            
+                                            <p class="text-gray-600 italic mt-2">
+                                                <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>
+                                                Lưu ý: Nên đặt bàn trước qua số điện thoại của nhà hàng
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 border-l-4 border-orange-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">12:30 - 14:00</h4>
+                                            <p class="text-gray-600 mt-1">Về nhà nghỉ ngơi, thư giãn</p>
+                                        </div>
+                                        <i class="fas fa-bed text-2xl text-orange-400"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="time-slot">
-                        <h4>Buổi Chiều</h4>
-                        <div class="activity">
-                            <div class="activity-time">14:00</div>
-                            <div class="activity-info">
-                                <p>Xuất phát đi Bảo tàng Quân đội.</p>
-                                <p><span class="highlight">Địa chỉ:</span> 28A Điện Biên Phủ, Ba Đình, Hà Nội.</p>
-                                <p><span class="highlight">Giá vé tham khảo:</span> 40.000 VNĐ/người lớn; 20.000 VNĐ/trẻ em và học sinh.</p>
+                        
+                        <!-- Afternoon Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="500">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                                    <i class="fas fa-sun text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI CHIỀU</h3>
+                            </div>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">14:00</h4>
+                                            <p class="text-gray-600 mt-1">Xuất phát đi Bảo tàng Quân đội</p>
+                                        </div>
+                                        <i class="fas fa-car text-2xl text-blue-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-blue-50 p-3 rounded-lg">
+                                            <h5 class="font-semibold text-gray-700 flex items-center">
+                                                <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Địa chỉ:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">Km6+500 Đại lộ Thăng Long, phường Tây Mỗ, quận Nam Từ Liêm, Hà Nội</p>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="fas fa-ticket-alt text-red-500 mr-2"></i>Giá vé:
+                                            </h5>
+                                            <ul class="text-gray-600 mt-1">
+                                                <li>Người lớn: 40.000 VNĐ</li>
+                                                <li>Miễn phí: người dưới 16 tuổi, người từ 80 tuổi trở lên, thương binh, người có công với cách mạng</li>
+                                                <li>Giảm 50%: người cao tuổi từ 60 tuổi trở lên, học sinh, sinh viên</li>
+                                            </ul>
+                                            
+                                            <h5 class="font-semibold text-gray-700 mt-3 flex items-center">
+                                                <i class="far fa-clock text-red-500 mr-2"></i>Giờ mở cửa:
+                                            </h5>
+                                            <p class="text-gray-600 mt-1">8:00 - 11:30 và 13:00 - 16:30 (đóng cửa vào thứ Hai và thứ Sáu)</p>
+                                            
+                                            <div class="bg-yellow-100 p-2 rounded-lg mt-2">
+                                                <p class="text-amber-700 text-sm">
+                                                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                                                    Lưu ý quan trọng: Cần kiểm tra xem bảo tàng có mở cửa vào ngày 1/5 không, vì thông thường bảo tàng đóng cửa vào thứ Sáu.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">14:30 - 17:00</h4>
+                                            <p class="text-gray-600 mt-1">Tham quan Bảo tàng Quân đội</p>
+                                        </div>
+                                        <i class="fas fa-landmark text-2xl text-blue-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="img-hover-zoom rounded-lg overflow-hidden h-48">
+                                                <img src="https://cdn.pixabay.com/photo/2015/03/26/09/44/tank-690156_1280.jpg" alt="Bảo tàng Quân đội" class="w-full h-full object-cover">
+                                            </div>
+                                            <div class="img-hover-zoom rounded-lg overflow-hidden h-48">
+                                                <img src="https://cdn.pixabay.com/photo/2017/08/21/22/57/museum-2667420_1280.jpg" alt="Hiện vật" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <h5 class="font-semibold text-gray-700">Khám phá các khu trưng bày:</h5>
+                                            <ul class="text-gray-600 mt-1 space-y-2">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-monument text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Lịch sử quân đội - Tìm hiểu về lịch sử hình thành và phát triển của Quân đội Nhân dân Việt Nam</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-monument text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Các cuộc kháng chiến - Tư liệu và hiện vật từ các cuộc chiến tranh bảo vệ Tổ quốc</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-monument text-blue-500 mt-1 mr-2"></i>
+                                                    <span>Vũ khí quân sự - Trưng bày các loại vũ khí, trang bị từ xưa đến nay</span>
+                                                </li>
+                                            </ul>
+                                            
+                                            <p class="text-gray-600 mt-3">
+                                                <i class="fas fa-plane text-blue-500 mr-1"></i>
+                                                Tham quan khu vực ngoài trời với các hiện vật lớn như máy bay, xe tăng
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="activity">
-                            <div class="activity-time">14:30 - 17:00</div>
-                            <div class="activity-info">
-                                <p>Tham quan Bảo tàng Quân đội:</p>
-                                <ul>
-                                    <li>Khám phá các khu trưng bày: lịch sử quân đội, các cuộc kháng chiến, vũ khí quân sự.</li>
-                                    <li>Tham quan khu vực ngoài trời với các hiện vật lớn như máy bay, xe tăng.</li>
-                                </ul>
+                        
+                        <!-- Evening Schedule -->
+                        <div class="mb-8" data-aos="fade-up" data-aos-delay="600">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-moon text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 ml-4">BUỔI TỐI</h3>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-slot">
-                        <h4>Buổi Tối</h4>
-                        <div class="activity">
-                            <div class="activity-time">17:00 - 17:30</div>
-                            <div class="activity-info">
-                                <p>Di chuyển về nhà.</p>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">18:00 - 19:30</div>
-                            <div class="activity-info">
-                                <p>Ăn tối:</p>
-                                <ul>
-                                    <li><span class="highlight">Lựa chọn 1:</span> Buffet chay tại nhà hàng (đặt bàn trước).</li>
-                                    <li><span class="highlight">Lựa chọn 2:</span> Ăn tối tại nhà với món tự nấu.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">19:30 - 21:30</div>
-                            <div class="activity-info">
-                                <p>(Tùy chọn)</p>
-                                <ul>
-                                    <li>
-                                        <span class="highlight">Lựa chọn 1:</span> Đi Aeon Mall hóng gió và mua sắm.
-                                        <p><span class="highlight">Địa chỉ:</span> Aeon Mall Long Biên, 27 Cổ Linh, Long Biên, Hà Nội (hoặc chi nhánh gần nhất).</p>
-                                    </li>
-                                    <li>
-                                        <span class="highlight">Lựa chọn 2:</span> Tổ chức sinh nhật cho bé Mía tại nhà.
-                                        <p>Chuẩn bị bánh kem, nến và quà sinh nhật. Tổ chức các trò chơi nhỏ cho các cháu.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">21:30</div>
-                            <div class="activity-info">
-                                <p>Về nhà nghỉ ngơi, kết thúc chuyến đi.</p>
+                            
+                            <div class="ml-16">
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">17:00 - 17:30</h4>
+                                            <p class="text-gray-600 mt-1">Di chuyển về nhà</p>
+                                        </div>
+                                        <i class="fas fa-car text-2xl text-purple-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mb-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">18:00 - 19:30</h4>
+                                            <p class="text-gray-600 mt-1">Ăn tối tại nhà</p>
+                                        </div>
+                                        <i class="fas fa-utensils text-2xl text-purple-400"></i>
+                                    </div>
+                                    <div class="mt-3 pl-4 border-l-2 border-gray-200">
+                                        <h5 class="font-semibold text-gray-700">Thực đơn:</h5>
+                                        <p class="text-gray-600 mt-1">Lẩu cá chép om dưa tại nhà</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">19:30 - 21:30 (Tùy chọn)</h4>
+                                            <p class="text-gray-600 mt-1">Hoạt động buổi tối</p>
+                                        </div>
+                                        <i class="fas fa-star text-2xl text-purple-400"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-purple-50 p-3 rounded-lg mb-3">
+                                            <h5 class="font-semibold text-gray-700">Lựa chọn 1: Đi Aeon Mall hóng gió và mua sắm</h5>
+                                            <p class="text-gray-600 mt-1">
+                                                <i class="fas fa-map-marker-alt text-red-500 mr-1"></i>
+                                                Địa chỉ: Aeon Mall Long Biên, 27 Cổ Linh, Long Biên, Hà Nội
+                                            </p>
+                                            <p class="text-gray-600 mt-1">
+                                                <i class="far fa-clock text-red-500 mr-1"></i>
+                                                Giờ mở cửa: 9:00 - 22:00
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="bg-purple-50 p-3 rounded-lg">
+                                            <h5 class="font-semibold text-gray-700">Lựa chọn 2: Tổ chức sinh nhật cho bé Mía tại nhà</h5>
+                                            <ul class="text-gray-600 mt-1">
+                                                <li>Chuẩn bị bánh kem, nến và quà sinh nhật</li>
+                                                <li>Tổ chức các trò chơi nhỏ cho các cháu</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-white rounded-lg shadow-md p-4 mt-4 border-l-4 border-purple-400">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">21:30</h4>
+                                            <p class="text-gray-600 mt-1">Về nhà nghỉ ngơi, kết thúc chuyến đi</p>
+                                        </div>
+                                        <i class="fas fa-bed text-2xl text-purple-400"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -708,3 +1273,545 @@
             </div>
         </div>
     </section>
+    
+    <!-- Checklist Section -->
+    <section id="checklist" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Danh Mục Cần Chuẩn Bị</h2>
+                <div class="w-24 h-1 bg-red-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                    Đảm bảo bạn không quên bất kỳ vật dụng cần thiết nào cho chuyến đi
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Personal Items -->
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 ml-4">Đồ dùng cá nhân</h3>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-blue-500" id="item1">
+                                <label for="item1" class="ml-3 text-gray-600">Trang phục thoải mái, phù hợp với thời tiết</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-blue-500" id="item2">
+                                <label for="item2" class="ml-3 text-gray-600">Mũ, nón, kính râm</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-blue-500" id="item3">
+                                <label for="item3" class="ml-3 text-gray-600">Kem chống nắng (SPF 50+)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-blue-500" id="item4">
+                                <label for="item4" class="ml-3 text-gray-600">Khẩu trang</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-blue-500" id="item5">
+                                <label for="item5" class="ml-3 text-gray-600">Khăn tay/khăn lau cá nhân</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-blue-500" id="item6">
+                                <label for="item6" class="ml-3 text-gray-600">Thuốc men cá nhân (nếu cần)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Common Items -->
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                                <i class="fas fa-suitcase text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 ml-4">Vật dụng chung</h3>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common1">
+                                <label for="common1" class="ml-3 text-gray-600">Bình nước, đồ ăn nhẹ</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common2">
+                                <label for="common2" class="ml-3 text-gray-600">Máy ảnh, điện thoại (đã sạc đầy pin)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common3">
+                                <label for="common3" class="ml-3 text-gray-600">Sạc dự phòng</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common4">
+                                <label for="common4" class="ml-3 text-gray-600">Túi đựng rác</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common5">
+                                <label for="common5" class="ml-3 text-gray-600">Khăn ướt, khăn giấy</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common6">
+                                <label for="common6" class="ml-3 text-gray-600">Ô/áo mưa dự phòng</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-green-500" id="common7">
+                                <label for="common7" class="ml-3 text-gray-600">Tiền mặt (để mua vé và chi tiêu)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kids Items -->
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-red-500 flex items-center justify-center">
+                                <i class="fas fa-child text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 ml-4">Cho trẻ em</h3>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid1">
+                                <label for="kid1" class="ml-3 text-gray-600">Đồ chơi nhỏ để giải trí khi di chuyển</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid2">
+                                <label for="kid2" class="ml-3 text-gray-600">Quần áo dự phòng</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid3">
+                                <label for="kid3" class="ml-3 text-gray-600">Sữa, đồ ăn dặm (nếu có trẻ nhỏ)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid4">
+                                <label for="kid4" class="ml-3 text-gray-600">Thuốc hạ sốt cho trẻ</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid5">
+                                <label for="kid5" class="ml-3 text-gray-600">Thuốc chống say xe (nếu cần)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid6">
+                                <label for="kid6" class="ml-3 text-gray-600">Khăn ướt và tã (nếu cần)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-pink-500" id="kid7">
+                                <label for="kid7" class="ml-3 text-gray-600">Bánh kẹo nhẹ cho bé</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Important Notes Section -->
+    <section id="notes" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Lưu Ý Quan Trọng</h2>
+                <div class="w-24 h-1 bg-red-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                    Những điều cần chú ý để chuyến đi được suôn sẻ và an toàn
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 flex items-center justify-center">
+                            <i class="fas fa-cloud-sun text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Thời tiết & Chuẩn bị</h3>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Kiểm tra thời tiết trước khi đi để chuẩn bị trang phục phù hợp. Tháng 4-5 ở Hà Nội thường nóng, nhiệt độ có thể lên đến 32-36°C.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Mang theo nước uống đầy đủ, đặc biệt nếu đi vào những ngày nắng nóng. Luôn bổ sung nước thường xuyên.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Sử dụng kem chống nắng và đội mũ khi tham quan các địa điểm ngoài trời như Công viên Thủ Lệ.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Nên mang theo áo khoác nhẹ, vì nhiều địa điểm trong nhà như Thủy Cung, bảo tàng thường có máy lạnh.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-ticket-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Vé & Đặt chỗ</h3>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Đặt bàn trước tại nhà hàng Phương Nam để tránh chờ đợi vào dịp lễ. Có thể gọi số hotline: 1800 2028.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Nên mua vé online cho Thủy Cung Times City trên website vinwonders.com để được ưu đãi giảm 20% (đến 25/4) và không phải xếp hàng.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Kiểm tra lịch trình show nhạc nước tại Times City để sắp xếp thời gian phù hợp (hiện tại là 19:00 hàng ngày).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Kiểm tra lại lịch mở cửa của Bảo tàng Quân đội vào ngày 1/5, vì thông thường bảo tàng đóng cửa vào thứ Sáu.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                            <i class="fas fa-route text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Di chuyển & An toàn</h3>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Chuẩn bị sẵn tiền mặt để mua vé và chi tiêu tại các điểm tham quan, đặc biệt là tại Công viên Thủ Lệ.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Luôn giữ liên lạc với nhau nếu di chuyển thành nhiều nhóm, đặc biệt ở những nơi đông người.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Chú ý giữ gìn đồ đạc cá nhân, tránh để kẻ gian lợi dụng nơi đông người.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Nếu có trẻ nhỏ đi cùng, hãy giữ trẻ cẩn thận, có thể chuẩn bị thẻ có thông tin liên lạc của phụ huynh.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Kế hoạch dự phòng</h3>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Có kế hoạch dự phòng trong trường hợp thời tiết xấu hoặc quá đông người. Nếu trời mưa, có thể chuyển sang các điểm tham quan trong nhà.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Nếu Bảo tàng Quân đội đóng cửa ngày 1/5, có thể thay thế bằng Bảo tàng Dân tộc học hoặc Bảo tàng Lịch sử Quốc gia.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Nên có danh sách một số nhà hàng thay thế, trong trường hợp không đặt được bàn tại Nhà hàng Phương Nam.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Đến sớm hoặc có kế hoạch dự phòng nếu không thể xem được show nhạc nước do đông người.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <div class="bg-gradient-to-r from-red-500 to-pink-500 rounded-lg shadow-lg p-6 text-white" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-exclamation-circle text-3xl mr-4"></i>
+                        <h3 class="text-xl font-bold">Lưu ý đặc biệt về dịp lễ 30/4 - 1/5</h3>
+                    </div>
+                    <p class="mb-3">
+                        Đây là dịp nghỉ lễ lớn, nên các địa điểm du lịch, vui chơi sẽ rất đông người. Hãy chuẩn bị tinh thần cho việc phải chờ đợi và di chuyển trong đám đông.
+                    </p>
+                    <p>
+                        Đảm bảo đến sớm các địa điểm muốn tham quan, hoặc mua vé online trước nếu có thể. Kiên nhẫn và giữ tinh thần vui vẻ, thoải mái để tận hưởng trọn vẹn chuyến đi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Map Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Bản Đồ Các Điểm Đến</h2>
+                <div class="w-24 h-1 bg-red-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                    Xem vị trí các địa điểm sẽ đến trong hành trình
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29793.98038438568!2d105.8223846790051!3d21.01358459678862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8c1de2fed3%3A0x7384ceded455b6f9!2zVmluY29tIE1lZ2EgTWFsbCBUaW1lcyBDaXR5LCDEkOG7k25nIFRhbSBUcmnhu4F1LCBIYWkgQsOgIFRyxrBuZywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1713513621533!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+                <div class="card bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-semibold text-gray-800 mb-2">Thủy Cung Times City</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        <i class="fas fa-map-marker-alt text-red-500 mr-1"></i>
+                        458 Minh Khai, Hai Bà Trưng, Hà Nội
+                    </p>
+                    <a href="https://goo.gl/maps/JKmQBXZdEYPHrfLM8" target="_blank" class="text-blue-500 text-sm hover:underline">
+                        <i class="fas fa-directions mr-1"></i>Chỉ đường
+                    </a>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="font-semibold text-gray-800 mb-2">Công viên Thủ Lệ</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        <i class="fas fa-map-marker-alt text-red-500 mr-1"></i>
+                        Đường Bưởi, Ba Đình, Hà Nội
+                    </p>
+                    <a href="https://goo.gl/maps/QeBxvnT5qx6L9jqS9" target="_blank" class="text-blue-500 text-sm hover:underline">
+                        <i class="fas fa-directions mr-1"></i>Chỉ đường
+                    </a>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="font-semibold text-gray-800 mb-2">Bảo tàng Quân đội</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        <i class="fas fa-map-marker-alt text-red-500 mr-1"></i>
+                        Km6+500 Đại lộ Thăng Long, Nam Từ Liêm
+                    </p>
+                    <a href="https://goo.gl/maps/jZxPXWTfmmF9f5PW8" target="_blank" class="text-blue-500 text-sm hover:underline">
+                        <i class="fas fa-directions mr-1"></i>Chỉ đường
+                    </a>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 transition duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <h4 class="font-semibold text-gray-800 mb-2">Aeon Mall Long Biên</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        <i class="fas fa-map-marker-alt text-red-500 mr-1"></i>
+                        27 Cổ Linh, Long Biên, Hà Nội
+                    </p>
+                    <a href="https://goo.gl/maps/NFwBqdFLqELZK3oC6" target="_blank" class="text-blue-500 text-sm hover:underline">
+                        <i class="fas fa-directions mr-1"></i>Chỉ đường
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kế Hoạch Du Lịch Hà Nội</h3>
+                    <p class="text-gray-400 mb-4">Dịp Lễ 30/4 - 1/5/2025</p>
+                    <p class="text-gray-400">
+                        Trang web này cung cấp thông tin chi tiết về kế hoạch du lịch Hà Nội trong dịp lễ 30/4 - 1/5/2025, bao gồm lịch trình, địa điểm tham quan, ẩm thực và các lưu ý quan trọng.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Các địa điểm tham quan</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="https://vinpearl.com/vi/thuy-cung-times-city-kham-pha-dai-duong-ky-dieu-giua-long-thu-do" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Thủy Cung Times City
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://vietair.com.vn/du-lich-trong-nuoc/cong-vien-thu-le.html" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Công viên Thủ Lệ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.fahasa.com/blog/bao-tang-lich-su-quan-su-viet-nam-gia-ve-nam-2025-va-kinh-nghiem-tham-quan/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Bảo tàng Quân đội
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://nhacnuocphatan.com/nhac-nuoc-times-city/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Show nhạc nước Times City
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400">© 2025 - Kế Hoạch Du Lịch Hà Nội | Thiết kế bởi AI Assistant</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="fixed bottom-5 right-5 bg-red-500 text-white rounded-full p-3 hidden shadow-lg hover:bg-red-600 transition duration-300 focus:outline-none">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile Menu Toggle
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Tab Switching
+        document.getElementById('tab1Btn').addEventListener('click', function() {
+            document.getElementById('tab1Btn').classList.add('active');
+            document.getElementById('tab2Btn').classList.remove('active');
+            document.getElementById('tab1Content').classList.add('active');
+            document.getElementById('tab2Content').classList.remove('active');
+        });
+        
+        document.getElementById('tab2Btn').addEventListener('click', function() {
+            document.getElementById('tab2Btn').classList.add('active');
+            document.getElementById('tab1Btn').classList.remove('active');
+            document.getElementById('tab2Content').classList.add('active');
+            document.getElementById('tab1Content').classList.remove('active');
+        });
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('April 30, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Checkbox functionality
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.parentElement.classList.add('opacity-50');
+                } else {
+                    this.parentElement.classList.remove('opacity-50');
+                }
+            });
+        });
+        
+        // Progress Bar Animation
+        window.addEventListener('scroll', function() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const windowHeight = window.innerHeight;
+                const elementTop = bar.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    bar.style.width = '100%';
+                }
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!document.getElementById('mobileMenu').classList.contains('hidden')) {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Add active class to nav items on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDheNlo2aClicmBQCxLHsMjiLNBS2z%2FYT5i4MjAlBaimPhlmIk0L9o1CRSm9I5mtEXz5cDM3lT4RgcaYPzvtY%2FlnsRa42Fb8VRBfKqw%2BJ%2Fqhp7SRn%2BpfS4cRKc6vvn6HyOeymzJJoAiNRlrXGrWGLGB%2FZTc9JBo6%2F0oidXnBkTlfhQBIhmaYkoIZ%2BYJVgxGG9SXdYw7FcPJ%2FnhnJSYgjBWYVbTxpcb9Zq2AH4iJmUNnh1UevqNqnjdG08CuNxpaV4WL%2B4xo8bTsPpqE6VAUd3sBNL6%2BLPGZX0JmSnM5V48js6MgqkTuu6PWedg2HffQK6hpvxwbAZ3KbKTlTjhItdDDms3RNhBUfNv63fatTrFrq1PJCFD3fbNe5OjtPdZpqDlbakRXHH%2B8LBfRufx2dmA2cwSTetqJoYQmJVLjMpq%2BGjxvszTfmBOhHMbAVVcVTn5Wv1gajcEfj4JZTSDPA9eJHRBi%2FC89iZkxtInhaeeBZNwhFbKK4JbT5jYvrRLkuzEh0ShCf8RAldWwAWlVzJ5b9w1eE%2BQrEFi1WXKYb7RBY8";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDheNlo2aClicmBQCxLHsMjiLNBS2z/YT5i4MjAlBaimPhlmIk0L9o1CRSm9I5mtEXz5cDM3lT4RgcaYPzvtY/lnsRa42Fb8VRBfKqw+J/qhp7SRn+pfS4cRKc6vvn6HyOeymzJJoAiNRlrXGrWGLGB/ZTc9JBo6/0oidXnBkTlfhQBIhmaYkoIZ+YJVgxGG9SXdYw7FcPJ/nhnJSYgjBWYVbTxpcb9Zq2AH4iJmUNnh1UevqNqnjdG08CuNxpaV4WL+4xo8bTsPpqE6VAUd3sBNL6+LPGZX0JmSnM5V48js6MgqkTuu6PWedg2HffQK6hpvxwbAZ3KbKTlTjhItdDDms3RNhBUfNv63fatTrFrq1PJCFD3fbNe5OjtPdZpqDlbakRXHH+8LBfRufx2dmA2cwSTetqJoYQmJVLjMpq+GjxvszTfmBOhHMbAVVcVTn5Wv1gajcEfj4JZTSDPA9eJHRBi/C89iZkxtInhaeeBZNwhFbKK4JbT5jYvrRLkuzEh0ShCf8RAldWwAWlVzJ5b9w1eE+QrEFi1WXKYb7RBY8";
+    </script>
+    
