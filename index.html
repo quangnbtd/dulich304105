@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kế hoạch du lịch ngày lễ 30/4 - 1/5/2025</title>
+    <style>
+        :root {
+            --primary-color: #2c7873;
+            --secondary-color: #6ab187;
+            --accent-color: #f07c41;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero {
+            position: relative;
+            height: 80vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://statics.vinpearl.com/thuy-cung-times-city-1_1634572330.png') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #e06c31;
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: var(--secondary-color);
+        }
+        
+        .schedule-day {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .day-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .day-content {
+            padding: 20px;
+        }
+        
+        .time-slot {
+            margin-bottom: 30px;
+        }
+        
+        .time-slot h4 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .activity {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .activity-time {
+            min-width: 150px;
+            font-weight: bold;
+        }
+        
+        .activity-info {
+            flex: 1;
+        }
+        
+        .activity-info p {
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .items-list {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .items-list h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .items-list ul {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
+        
+        .items-list li {
+            margin-bottom: 10px;
+        }
+        
+        .notes {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+        }
+        
+        .notes h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .notes ul {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
+        
+        .notes li {
+            margin-bottom: 10px;
+        }
+        
+        .attractions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .attraction-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .attraction-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .attraction-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .attraction-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .attraction-card:hover .attraction-image img {
+            transform: scale(1.1);
+        }
+        
+        .attraction-info {
+            padding: 20px;
+        }
+        
+        .attraction-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .attraction-info p {
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        .pdf-button {
+            display: block;
+            width: 200px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .activity {
+                flex-direction: column;
+            }
+            
+            .activity-time {
+                margin-bottom: 10px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                display: none;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+            
+            header .container {
+                position: relative;
+            }
+        }
+        
+        @media screen and (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
+        
+        /* Hamburger */
+        .hamburger {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            margin-right: 15px;
+        }
+        
+        .hamburger span {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">TravelPlan</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#overview">Tổng Quan</a></li>
+                    <li><a href="#day1">Ngày 30/4</a></li>
+                    <li><a href="#day2">Ngày 1/5</a></li>
+                    <li><a href="#checklist">Chuẩn Bị</a></li>
+                    <li><a href="#notes">Lưu Ý</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>KẾ HOẠCH DU LỊCH NGÀY LỄ 30/4 - 1/5/2025</h1>
+            <p>Trải nghiệm những chuyến tham quan thú vị tại Hà Nội với lịch trình được lên kế hoạch chi tiết: Thủy Cung Times City, Công viên Thủ Lệ, Bảo tàng Quân đội Việt Nam và nhiều hoạt động hấp dẫn khác.</p>
+            <a href="#overview" class="btn">Xem Chi Tiết</a>
+        </div>
+    </div>
+    
+    <section id="overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tổng Quan Chuyến Đi</h2>
+                <p>Một kỳ nghỉ lễ 30/4-1/5 trọn vẹn với nhiều trải nghiệm thú vị</p>
+            </div>
+            
+            <div class="attractions">
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://statics.vinpearl.com/thuy-cung-times-city-1_1634572330.png" alt="Thủy Cung Times City">
+                    </div>
+                    <div class="attraction-info">
+                        <h3>Thủy Cung Times City</h3>
+                        <p>Khám phá thế giới đại dương kỳ diệu với hơn 30.000 sinh vật biển từ nhiều hệ sinh thái khác nhau.</p>
+                        <p><span class="highlight">Địa chỉ:</span> Tầng B1, TTTM Vincom Mega Mall Times City, 458 Minh Khai</p>
+                    </div>
+                </div>
+                
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://visitbadinh.com/DataFiles/2023/11/Entertainment/20231129-143951-gR1wPTTY.jpg" alt="Công viên Thủ Lệ">
+                    </div>
+                    <div class="attraction-info">
+                        <h3>Công viên Thủ Lệ</h3>
+                        <p>Khu vườn thú rộng lớn với nhiều loài động vật quý hiếm và khu vực vui chơi dành cho gia đình.</p>
+                        <p><span class="highlight">Địa chỉ:</span> Số 1 Đường Bưởi, Quận Ba Đình, Hà Nội</p>
+                    </div>
+                </div>
+                
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Army_Museum_Entrance%2C_Hanoi.jpg" alt="Bảo tàng Quân đội">
+                    </div>
+                    <div class="attraction-info">
+                        <h3>Bảo tàng Quân đội</h3>
+                        <p>Tìm hiểu về lịch sử quân sự Việt Nam và chiêm ngưỡng các hiện vật quý giá từ các cuộc kháng chiến.</p>
+                        <p><span class="highlight">Địa chỉ:</span> 28A Điện Biên Phủ, Ba Đình, Hà Nội</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="day1">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ngày 30/4/2025 (Thứ Tư)</h2>
+                <p>Thủy Cung Times City &amp; Show Nhạc Nước</p>
+            </div>
+            
+            <div class="schedule-day">
+                <div class="day-header">
+                    <h3>Lịch trình chi tiết - Ngày 30/4/2025</h3>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <h4>Buổi Sáng</h4>
+                        <div class="activity">
+                            <div class="activity-time">8:00 - 10:30</div>
+                            <div class="activity-info">
+                                <p>Nghỉ ngơi tại nhà, thư giãn và chuẩn bị cho các hoạt động trong ngày.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">10:30 - 11:30</div>
+                            <div class="activity-info">
+                                <p>Chuẩn bị bữa trưa.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">11:30 - 13:00</div>
+                            <div class="activity-info">
+                                <p>Ăn trưa tại nhà.</p>
+                                <p><span class="highlight">Thực đơn đề xuất:</span> Cơm thịt gà hoặc các món đặc sản quê.</p>
+                                <p><span class="highlight">Lưu ý:</span> Mọi người có thể mang thêm đặc sản từ quê lên để cùng thưởng thức.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <h4>Buổi Chiều</h4>
+                        <div class="activity">
+                            <div class="activity-time">13:00 - 14:00</div>
+                            <div class="activity-info">
+                                <p>Nghỉ ngơi, chuẩn bị đồ dùng cần thiết (nước uống, đồ ăn nhẹ, máy ảnh).</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">14:00</div>
+                            <div class="activity-info">
+                                <p>Xuất phát đi Thủy Cung Times City.</p>
+                                <p><span class="highlight">Địa chỉ:</span> Tầng B1, TTTM Vincom Mega Mall Times City, 458 Minh Khai, Hai Bà Trưng, Hà Nội.</p>
+                                <p><span class="highlight">Giá vé tham khảo:</span> 150.000 - 200.000 VNĐ/người lớn; 100.000 VNĐ/trẻ em.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">14:30 - 17:30</div>
+                            <div class="activity-info">
+                                <p>Tham quan Thủy Cung:</p>
+                                <ul>
+                                    <li>Khám phá các khu vực: Đại dương sâu, Vùng nước ngọt, Rạn san hô, Xứ sở thần tiên.</li>
+                                    <li>Xem show biểu diễn của cá heo (nếu có lịch trình vào ngày này).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <h4>Buổi Tối</h4>
+                        <div class="activity">
+                            <div class="activity-time">18:00 - 19:00</div>
+                            <div class="activity-info">
+                                <p>Ăn tối tại KFC Times City.</p>
+                                <p><span class="highlight">Địa chỉ:</span> Tầng 1, TTTM Vincom Mega Mall Times City.</p>
+                                <p><span class="highlight">Món đề xuất:</span> Combo gà rán gia đình, khoai tây chiên, salad và nước uống.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">19:00 - 20:00</div>
+                            <div class="activity-info">
+                                <p>Xem show nhạc nước tại Times City.</p>
+                                <p><span class="highlight">Địa điểm:</span> Công viên nước ngoài trời, Times City.</p>
+                                <p><span class="highlight">Lưu ý:</span> Nên đến sớm 15-20 phút để có vị trí đẹp.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">20:00</div>
+                            <div class="activity-info">
+                                <p>Về nhà nghỉ ngơi.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">20:30 - 21:30</div>
+                            <div class="activity-info">
+                                <p>(Tùy chọn) Cho các cháu xuống khu vui chơi dưới chân chung cư nếu còn sức.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">21:30</div>
+                            <div class="activity-info">
+                                <p>Nghỉ ngơi, chuẩn bị cho ngày hôm sau.</p>
+                                <p><span class="highlight">Lựa chọn bổ sung:</span> Nấu nồi cháo gà nếu mọi người đói.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="day2">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ngày 1/5/2025 (Thứ Năm)</h2>
+                <p>Công viên Thủ Lệ, Bảo tàng Quân đội &amp; Aeon Mall</p>
+            </div>
+            
+            <div class="schedule-day">
+                <div class="day-header">
+                    <h3>Lịch trình chi tiết - Ngày 1/5/2025</h3>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <h4>Buổi Sáng</h4>
+                        <div class="activity">
+                            <div class="activity-time">7:00 - 8:00</div>
+                            <div class="activity-info">
+                                <p>Thức dậy, vệ sinh cá nhân và ăn sáng.</p>
+                                <p><span class="highlight">Đề xuất bữa sáng:</span> Phở, bánh mì hoặc xôi để có đủ năng lượng cho một ngày dài.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">8:00 - 8:30</div>
+                            <div class="activity-info">
+                                <p>Chuẩn bị đồ dùng cần thiết (nước uống, đồ ăn nhẹ, mũ nón, kem chống nắng).</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">8:30</div>
+                            <div class="activity-info">
+                                <p>Xuất phát đi Công viên Thủ Lệ.</p>
+                                <p><span class="highlight">Địa chỉ:</span> Số 1 Đường Bưởi, Quận Ba Đình, Hà Nội.</p>
+                                <p><span class="highlight">Giá vé tham khảo:</span> 30.000 VNĐ/người lớn; 10.000 VNĐ/trẻ em.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">9:00 - 11:00</div>
+                            <div class="activity-info">
+                                <p>Tham quan Công viên Thủ Lệ:</p>
+                                <ul>
+                                    <li>Khám phá vườn thú: khu vực hổ, báo, gấu, linh trưởng, chim, bò sát...</li>
+                                    <li>Chụp ảnh lưu niệm, tham gia các hoạt động giải trí trong công viên.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <h4>Buổi Trưa</h4>
+                        <div class="activity">
+                            <div class="activity-time">11:30 - 12:30</div>
+                            <div class="activity-info">
+                                <p>Ăn trưa tại Nhà hàng Phương Nam.</p>
+                                <p><span class="highlight">Địa chỉ:</span> 131 E3 Phố Vọng, Đồng Tâm, Hai Bà Trưng, Hà Nội (hoặc chi nhánh gần nhất).</p>
+                                <p><span class="highlight">Món đề xuất:</span> Lẩu cá kèo, các món đặc sản miền Tây.</p>
+                                <p><span class="highlight">Lưu ý:</span> Nên đặt bàn trước qua số điện thoại của nhà hàng.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">12:30 - 14:00</div>
+                            <div class="activity-info">
+                                <p>Về nhà nghỉ ngơi, thư giãn.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <h4>Buổi Chiều</h4>
+                        <div class="activity">
+                            <div class="activity-time">14:00</div>
+                            <div class="activity-info">
+                                <p>Xuất phát đi Bảo tàng Quân đội.</p>
+                                <p><span class="highlight">Địa chỉ:</span> 28A Điện Biên Phủ, Ba Đình, Hà Nội.</p>
+                                <p><span class="highlight">Giá vé tham khảo:</span> 40.000 VNĐ/người lớn; 20.000 VNĐ/trẻ em và học sinh.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">14:30 - 17:00</div>
+                            <div class="activity-info">
+                                <p>Tham quan Bảo tàng Quân đội:</p>
+                                <ul>
+                                    <li>Khám phá các khu trưng bày: lịch sử quân đội, các cuộc kháng chiến, vũ khí quân sự.</li>
+                                    <li>Tham quan khu vực ngoài trời với các hiện vật lớn như máy bay, xe tăng.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <h4>Buổi Tối</h4>
+                        <div class="activity">
+                            <div class="activity-time">17:00 - 17:30</div>
+                            <div class="activity-info">
+                                <p>Di chuyển về nhà.</p>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">18:00 - 19:30</div>
+                            <div class="activity-info">
+                                <p>Ăn tối:</p>
+                                <ul>
+                                    <li><span class="highlight">Lựa chọn 1:</span> Buffet chay tại nhà hàng (đặt bàn trước).</li>
+                                    <li><span class="highlight">Lựa chọn 2:</span> Ăn tối tại nhà với món tự nấu.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">19:30 - 21:30</div>
+                            <div class="activity-info">
+                                <p>(Tùy chọn)</p>
+                                <ul>
+                                    <li>
+                                        <span class="highlight">Lựa chọn 1:</span> Đi Aeon Mall hóng gió và mua sắm.
+                                        <p><span class="highlight">Địa chỉ:</span> Aeon Mall Long Biên, 27 Cổ Linh, Long Biên, Hà Nội (hoặc chi nhánh gần nhất).</p>
+                                    </li>
+                                    <li>
+                                        <span class="highlight">Lựa chọn 2:</span> Tổ chức sinh nhật cho bé Mía tại nhà.
+                                        <p>Chuẩn bị bánh kem, nến và quà sinh nhật. Tổ chức các trò chơi nhỏ cho các cháu.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="activity-time">21:30</div>
+                            <div class="activity-info">
+                                <p>Về nhà nghỉ ngơi, kết thúc chuyến đi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
